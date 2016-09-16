@@ -20,7 +20,11 @@ public class Principal extends javax.swing.JFrame {
     Password p;
     public Principal() {
         initComponents();
-        
+        cmdGuardar.setEnabled(true);
+        cmdVerificar.setEnabled(false);
+        cmdCambiar.setEnabled(false);
+        cmdMostrar.setEnabled(false);
+        cmdBorrar.setEnabled(true);
     }
 
     /**
@@ -159,7 +163,13 @@ public class Principal extends javax.swing.JFrame {
         longitud = String.valueOf(aux);
         
         p = new Password(contraseña, longitud);
+        JOptionPane.showMessageDialog(this, "Contraseña guardada exitosamente");
         txtPassContraseña.setText("");
+        cmdGuardar.setEnabled(false);
+        cmdVerificar.setEnabled(true);
+        cmdCambiar.setEnabled(true);
+        cmdMostrar.setEnabled(true);
+        cmdBorrar.setEnabled(true);
         }
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
@@ -178,6 +188,7 @@ public class Principal extends javax.swing.JFrame {
         else{
             contraseña_Nueva = txtPassContraseña.getText();
             p.setContraseña(contraseña_Nueva);
+            JOptionPane.showMessageDialog(this, "Contraseña cambiada exitosamente");
         }
     }//GEN-LAST:event_cmdCambiarActionPerformed
 
@@ -196,6 +207,11 @@ public class Principal extends javax.swing.JFrame {
         txtResultado.setText("");
         p=null;
         txtPassContraseña.requestFocusInWindow();
+        cmdGuardar.setEnabled(true);
+        cmdVerificar.setEnabled(false);
+        cmdCambiar.setEnabled(false);
+        cmdMostrar.setEnabled(false);
+        cmdBorrar.setEnabled(true);
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
